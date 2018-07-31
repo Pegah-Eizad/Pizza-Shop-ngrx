@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p",
-    "build:dev":
-      "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "build:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "build:production": "npm run clean && npm run build",
     "clean": "rimraf build",
     "start": "npm run build:dev",
@@ -58,7 +57,7 @@
     "@angular/router": "5.0.3",
     "@ngrx/effects": "4.1.0",
     "@ngrx/router-store": "4.1.1",
-    "@ngrx/store": "4.1.0",
+    "@ngrx/store": "^6.0.1",
     "@ngrx/store-devtools": "4.0.0",
     "core-js": "2.5.1",
     "reflect-metadata": "0.1.10",

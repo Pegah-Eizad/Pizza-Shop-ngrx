@@ -12,6 +12,9 @@ export const reducers: ActionReducerMap<ProductsState> = {
 //holds selector for entire lazy loaded module
 //create base reference to 'products' prop on state
 export const getProductState = createFeatureSelector<ProductsState>('products');
-
 //pizzas state
 export const getPizzasState = createSelector(getProductState, (state: ProductsState) => state.pizzas);
+//jumo down the state tree
+export const getAllPizzas = createSelector(getPizzasState, pizzasReducer.getPizzas);
+export const getPizzasLoaded = createSelector(getPizzasState, pizzasReducer.getPizzasLoaded);
+export const getPizzasLoading = createSelector(getPizzasState, pizzasReducer.getPizzasLoading);

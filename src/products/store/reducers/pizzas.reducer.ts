@@ -68,6 +68,7 @@ export function reducer(
            };
        }
        case(pizzaActions.LOAD_PIZZAS_SUCCESS): {
+         console.log(action.payload);
         return {
             ...state,
             loading: false,

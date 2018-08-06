@@ -9,7 +9,6 @@ export const LOAD_PIZZAS_SUCCESS = '[Products] Load Pizzas Success';
 //action creators
 export class LoadPizzas implements Action {
     readonly type = LOAD_PIZZAS;
-    constructor(public payload: any) {}
 }
 
 export class LoadPizzasFail implements Action {

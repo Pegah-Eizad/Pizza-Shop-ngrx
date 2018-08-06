@@ -1,10 +1,17 @@
-import { ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as pizzasReducer from './pizzas.reducer';
 //register reducers as part of the store in this file
-export interface productsState {
+export interface ProductsState {
   pizzas: pizzasReducer.PizzaState
 }
 //action redcucerMap takes a generic type
-export const reducers: ActionReducerMap<productsState> = {
+export const reducers: ActionReducerMap<ProductsState> = {
     pizzas: pizzasReducer.reducer
 }
+
+//holds selector for entire lazy loaded module
+//create base reference to 'products' prop on state
+export const getProductState = createFeatureSelector<ProductsState>('products');
+
+//pizzas state
+export const getPizzasState = createSelector(getProductState, (state: ProductsState) => state.pizzas);

@@ -16,6 +16,6 @@ export const getProductState = createFeatureSelector<ProductsState>('products');
 //pizzas state
 export const getPizzasState = createSelector(getProductState, (state: ProductsState) => state.pizzas);
 //jumo down the state tree
-export const getAllPizzas = createSelector(getPizzasState, pizzasReducer.getPizzas);
+export const getAllPizzas = createSelector(getPizzasState, pizzasReducer.getPizzasEntities);
 export const getPizzasLoaded = createSelector(getPizzasState, pizzasReducer.getPizzasLoaded);
 export const getPizzasLoading = createSelector(getPizzasState, pizzasReducer.getPizzasLoading);

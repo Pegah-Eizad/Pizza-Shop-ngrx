@@ -15,7 +15,16 @@ export const reducers: ActionReducerMap<ProductsState> = {
 export const getProductState = createFeatureSelector<ProductsState>('products');
 //pizzas state
 export const getPizzasState = createSelector(getProductState, (state: ProductsState) => state.pizzas);
-//jumo down the state tree
-export const getAllPizzas = createSelector(getPizzasState, pizzasReducer.getPizzasEntities);
+//jump down the state tree
+export const getPizzasEntities = createSelector(getPizzasState, pizzasReducer.getPizzasEntities);
+//use selectors to compose brand new state,
+//convert object data structure into an array
+export const getAllPizzas = createSelector( 
+  getPizzasEntities,
+  (entities) => {
+    //map over each entitity looking them up by their ids
+    return Object.keys(entities).map(id => entities[parseInt(id, 10)]); //convert to int b/c Object.keys returns a string
+  }
+ )
 export const getPizzasLoaded = createSelector(getPizzasState, pizzasReducer.getPizzasLoaded);
 export const getPizzasLoading = createSelector(getPizzasState, pizzasReducer.getPizzasLoading);

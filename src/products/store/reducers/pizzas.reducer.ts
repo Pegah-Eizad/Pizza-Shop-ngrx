@@ -28,9 +28,9 @@ export function reducer(
        case(pizzaActions.LOAD_PIZZAS_SUCCESS): {
          const pizzas = action.payload;
          const entities = pizzas.reduce((entities: {[id: number]: Pizza}, pizza: Pizza) => {
-          return{
+          return {
             ...entities, 
-            [pizza.id] : pizza};
+            [pizza.id] : pizza };
          }, 
          {
            ...state.entities

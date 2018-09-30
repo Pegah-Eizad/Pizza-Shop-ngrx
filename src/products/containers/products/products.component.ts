@@ -48,5 +48,6 @@ export class ProductsComponent implements OnInit {
     It will then bind that to the pizzas$ which we are subscribed to with the async pipe*/ 
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
     this.store.dispatch(new fromStore.LoadPizzas());
+    this.store.dispatch(new fromStore.LoadToppings());
   }
 }

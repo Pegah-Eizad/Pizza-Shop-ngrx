@@ -5,7 +5,8 @@ import * as toppingsReducer from '../reducers/toppings.reducer';
 
 /*this selector allows us to access different levels of our state tree,
 accessing multiple properties on different levels and combining them
-and pass them as observables to our component*/
+and pass them as observables to our component
+Always compose new selectors based off of existing ones*/
 
 //selector importing data structure of the store
 export const getToppingsState = createSelector(
@@ -18,6 +19,12 @@ export const getToppingsState = createSelector(
 export const getToppingEntities = createSelector(
     getToppingsState,
     toppingsReducer.getToppingEntities
+);
+
+//reference to the selected toppings array
+export const getSelectedToppings = createSelector(
+    getToppingsState,
+    toppingsReducer.getSelectedToppings
 );
 
 //map over the entities and return each entity by its ID

@@ -4,6 +4,7 @@ import * as pizzaActions from '../actions/pizzas.action';
 import * as fromServices from '../../services';
 import { map, switchMap, catchError } from '../../../../node_modules/rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { effects } from '.';
 //import { map } from '../../../../node_modules/@types/bluebird';
 
 @Injectable()
@@ -22,7 +23,21 @@ export class PizzasEffects {
                map(pizzas => new pizzaActions.LoadPizzasSuccess(pizzas)),
                //return an observable of the action
                catchError(error => of(new pizzaActions.LoadPizzasFail(error)))
-           )
+           );
+         })
+     );
+
+     @Effect()
+     createPizza$ = this.actions$.ofType(pizzaActions.CREATE_PIZZA)
+     .pipe(
+         map((action: pizzaActions.CreatePizza) => action.payload), 
+         //return payload to the next item in the stream
+         switchMap(pizza => {
+             return this.pizzaService.createPizza(pizza)
+             .pipe(
+                 map(pizza => new pizzaActions.CreatePizzaSuccess(pizza)),
+                 catchError(error => of(new pizzaActions.CreatePizzaFail(error)))
+             );
          })
      );
 }

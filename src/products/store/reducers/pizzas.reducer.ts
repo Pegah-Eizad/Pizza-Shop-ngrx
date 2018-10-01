@@ -2,7 +2,7 @@ import * as pizzaActions from '../actions/pizzas.action';
 import { Pizza } from '../../models/pizza.model';
 
 export interface PizzaState {
-    entities: { [id: number] : Pizza},
+    entities: { [id: number]: Pizza},
     loaded: boolean,
     loading: boolean
 }
@@ -42,13 +42,24 @@ export function reducer(
             entities
           };
        }
-    case(pizzaActions.LOAD_PIZZAS_FAIL): {
+      case(pizzaActions.LOAD_PIZZAS_FAIL): {
         return {
             ...state,
             loading: false,
             loaded: false
           };
        }
+      case(pizzaActions.CREATE_PIZZA_SUCCESS): {
+          const pizza = action.payload;
+          const entities = {
+              ...state.entities,
+              [pizza.id]: pizza
+          };
+          return {
+              ...state,
+              entities
+          };
+      }
     }
 
   return state;

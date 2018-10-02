@@ -220,12 +220,7 @@
     },
     {
       "name": "something",
-      "toppings": [
-        {
-          "id": 4,
-          "name": "chili"
-        }
-      ],
+      "toppings": [],
       "id": 11
     },
     {

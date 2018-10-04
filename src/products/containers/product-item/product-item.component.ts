@@ -54,6 +54,7 @@ export class ProductItemComponent implements OnInit {
     this.visualise$ = this.store.select(fromStore.getPizzaVisualized);
   }
 
+  //use dispatch when projecting an output from a container component
   onSelect(event: number[]) {
     this.store.dispatch(new fromStore.VisualizeToppings(event));
   }
@@ -69,6 +70,7 @@ export class ProductItemComponent implements OnInit {
   onRemove(event: Pizza) {
     const remove = window.confirm('Are you sure?');
     if (remove) {
+      this.store.dispatch(new fromStore.RemovePizza(event));
     }
   }
 }

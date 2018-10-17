@@ -61,6 +61,15 @@ export function reducer(
               entities
           };
       }
+
+      case (pizzaActions.REMOVE_PIZZA_SUCCESS): {
+          const pizza = action.payload;
+          const { [pizza.id]: removed, ...entities } = state.entities; //remove by destructuring
+          return {
+              ...state,
+              entities
+          };
+      }
     }
 
   return state;

@@ -54,4 +54,17 @@ export class PizzasEffects {
              );
          })
      );
+
+     @Effect()
+     removePizza$ = this.actions$.ofType(pizzaActions.REMOVE_PIZZA)
+     .pipe(
+         map((action: pizzaActions.RemovePizza) => action.payload),
+          switchMap(pizza => {
+              return this.pizzaService.removePizza(pizza) //returns an observable
+              .pipe(
+                  map(() => new pizzaActions.RemovePizzaSuccess(pizza)), //no input since we do not get a pizza back
+                  catchError(error => of(new pizzaActions.UpdatePizzaFail(error))) //return an observable of remove pizza fail
+              );
+          })
+     );
 }

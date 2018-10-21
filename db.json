@@ -223,20 +223,6 @@
         }
       ],
       "id": 21
-    },
-    {
-      "name": "mnhv",
-      "toppings": [
-        {
-          "id": 9,
-          "name": "pepper"
-        },
-        {
-          "id": 10,
-          "name": "pepperoni"
-        }
-      ],
-      "id": 22
     }
   ]
 }

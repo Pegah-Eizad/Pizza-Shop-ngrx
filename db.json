@@ -93,11 +93,6 @@
       "id": 2
     },
     {
-      "name": "Plain Ol' Pepperoni",
-      "toppings": [],
-      "id": 3
-    },
-    {
       "name": "Test Pizza",
       "toppings": [
         {

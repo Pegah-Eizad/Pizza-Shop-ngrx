@@ -11,16 +11,16 @@ import { Pizza } from '../models/pizza.model';
 
 
 @Injectable()
-export class PizzaExistsGuards implements CanActivate {
+export class PizzaExistsGuard implements CanActivate {
     constructor(private store: Store<fromStore.ProductsState>) {}
 
     canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
         return this.checkStore().pipe(
             switchMap(() => {
-               const id = parseInt(route.params.PizzaId, 10);
+               const id = parseInt(route.params.pizzaId, 10);
                return this.hasPizza(id);
             })
-        ); //as;dfjadskfj;aoidjfjhlkjhlkjh
+        );
     }
 
     hasPizza(id: number): Observable<boolean> {

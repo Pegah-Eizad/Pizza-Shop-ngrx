@@ -23,4 +23,23 @@ describe('PizzasReducer', () => {
             expect(state.loading).toEqual(true);
         })
     });
+    describe('LOAD_PIZZAS_SUCCESS action', () => {
+        it('should map an array to entities', () => {
+            const pizzas: Pizza[] = [
+                { id: 1, name: 'Pizza #1', toppings: []},
+                { id: 2, name: 'Pizza #2', toppings: []},
+            ];
+            const entities = {
+                1: pizzas[0],
+                2: pizzas[1]
+            }
+            const { initialState } = pizzasReducer;
+            const action = new pizzasActions.LoadPizzasSuccess(pizzas);
+            const state = pizzasReducer.reducer(initialState, action);
+
+            expect(state.entities).toEqual(entities);
+            expect(state.loaded).toEqual(true);
+            expect(state.loading).toEqual(false);
+        })
+    });
 })

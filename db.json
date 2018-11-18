@@ -51,28 +51,6 @@
   ],
   "pizzas": [
     {
-      "name": "Seaside Surfin'",
-      "toppings": [
-        {
-          "id": 7,
-          "name": "olive"
-        },
-        {
-          "id": 8,
-          "name": "onion"
-        },
-        {
-          "id": 11,
-          "name": "sweetcorn"
-        },
-        {
-          "id": 1,
-          "name": "anchovy"
-        }
-      ],
-      "id": 2
-    },
-    {
       "name": "pizzaisdavid",
       "toppings": [
         {
@@ -115,28 +93,6 @@
         }
       ],
       "id": 14
-    },
-    {
-      "name": "ABC",
-      "toppings": [
-        {
-          "id": 3,
-          "name": "basil"
-        },
-        {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 5,
-          "name": "mozzarella"
-        }
-      ],
-      "id": 15
     },
     {
       "name": "Zaaa",
